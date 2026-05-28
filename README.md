@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+let balance = 1000;
+
+document.getElementById("balance").innerText = "$" + balance;
+
+function trade(direction) {
+    let result = document.getElementById("result");
+
+    // random market movement (demo logic)
+    let outcome = Math.random() < 0.5 ? "UP" : "DOWN";
+
+    if (direction === outcome) {
+        balance += 50; // win
+        result.innerHTML = "✅ You WON! Market was " + outcome;
+        result.style.color = "green";
+    } else {
+        balance -= 50; // lose
+        result.innerHTML = "❌ You LOST! Market was " + outcome;
+        result.style.color = "red";
+    }
+
+    document.getElementById("balance").innerText = "$" + balance;
+}<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
